@@ -1,0 +1,25 @@
+SQL
+-- 1. Membuat Tabel Master Kasir
+CREATE TABLE KASIR (
+    ID_Kasir VARCHAR(10) PRIMARY KEY,
+    Nama_Kasir VARCHAR(100) NOT NULL,
+    Shift VARCHAR(20) NOT NULL
+);
+
+-- 2. Membuat Tabel Master Barang
+CREATE TABLE BARANG (
+    ID_Barang VARCHAR(10) PRIMARY KEY,
+    Nama_Barang VARCHAR(100) NOT NULL,
+    Harga_Jual INT NOT NULL,
+    Stok INT NOT NULL
+);
+
+-- 3. Membuat Tabel Transaksi (Menghubungkan Kasir dan Detail Transaksi)
+CREATE TABLE TRANSAKSI (
+    ID_Transaksi VARCHAR(10) PRIMARY KEY,
+    Tanggal DATE NOT NULL,
+    Total INT NOT NULL,
+    Metode_Bayar VARCHAR(30) NOT NULL,
+    ID_Kasir VARCHAR(10) NOT NULL,
+    FOREIGN KEY (ID_Kasir) REFERENCES KASIR(ID_Kasir)
+
