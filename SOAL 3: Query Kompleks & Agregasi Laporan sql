@@ -1,0 +1,16 @@
+
+SELECT 
+    b.Nama_Barang,
+    SUM(dt.Jumlah) AS Total_Jumlah_Terjual,
+    SUM(dt.Subtotal) AS Total_Pendapatan
+FROM DETAIL_TRANSAKSI dt
+JOIN BARANG b ON dt.ID_Barang = b.ID_Barang
+JOIN TRANSAKSI t ON dt.ID_Transaksi = t.ID_Transaksi
+WHERE t.Tanggal >= '2026-10-01'
+GROUP BY b.ID_Barang, b.Nama_Barang;
+
+Hasilnya:
+Nama_Barang	Total_Jumlah_Terjual	Total_Pendapatan
+Minyak Goreng 1L	2	36000
+Beras 5kg	1	65000
+Gula Pasir 1kg	5	75000
