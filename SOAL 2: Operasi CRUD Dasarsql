@@ -1,0 +1,35 @@
+soal no. 1. [CREATE] Lakukan INSERT minimal 3 baris data dummy ke masing-masing tabel (total 9 baris data).
+  jawaban:
+-- Insert ke Tabel KASIR
+INSERT INTO KASIR (ID_Kasir, Nama_Kasir, Shift) VALUES
+('KSR01', 'Budi Santoso', 'Pagi'),
+('KSR02', 'Siti Rahma', 'Siang'),
+('KSR03', 'Ahmad Rizki', 'Malam');
+
+-- Insert ke Tabel BARANG
+INSERT INTO BARANG (ID_Barang, Nama_Barang, Harga_Jual, Stok) VALUES
+('BRG01', 'Minyak Goreng 1L', 18000, 50),
+('BRG02', 'Beras 5kg', 65000, 30),
+('BRG03', 'Gula Pasir 1kg', 15000, 40);
+
+-- Insert ke Tabel TRANSAKSI
+INSERT INTO TRANSAKSI (ID_Transaksi, Tanggal, Total, Metode_Bayar, ID_Kasir) VALUES
+('TRX01', '2026-10-01', 36000, 'Tunai', 'KSR01'),
+('TRX02', '2026-10-01', 65000, 'QRIS', 'KSR02'),
+('TRX03', '2026-10-02', 30000, 'Tunai', 'KSR01');
+
+soal no. 2. [READ] Tampilkan seluruh isi salah satu Tabel Induk menggunakan perintah SELECT *.
+  jawaban:
+SELECT * FROM BARANG;
+
+[UPDATE] Ubah satu nilai data (misal: mengubah harga, mengubah status, atau memperbaiki nama) pada Tabel Transaksi. 
+Wajib menggunakan klausa WHERE pada Primary Key agar tidak terjadi update massal.
+  jawaban:
+  UPDATE TRANSAKSI 
+SET Metode_Bayar = 'Transfer Bank' 
+WHERE ID_Transaksi = 'TRX01';
+
+soal no. 3. [DELETE] Hapus salah satu baris data dummy pada Tabel Transaksi. Wajib menggunakan klausa WHERE.
+  jawaban:
+DELETE FROM DETAIL_TRANSAKSI 
+WHERE ID_Detail = 'DTL03';
